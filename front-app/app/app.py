@@ -1,4 +1,4 @@
-from flask import render_template, request, send_file, abort
+from flask import render_template, request, send_file, abort, url_for
 from flask import Flask
 from flask_bootstrap import Bootstrap
 import requests
@@ -64,7 +64,7 @@ def cadastro():
     except FileNotFoundError:
         abort(404)
 
-@app.route('about')
+@app.route('/about')
 def about():
     return render_template('about.html', title='About')
 

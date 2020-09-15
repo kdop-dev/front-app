@@ -9,11 +9,18 @@ The front-app has integration with the APIs, [back-app]() and [cert-app](https:/
 ```bash
 cd front-app/app
 
-flask run --port 5001
+flask run --port 5000
 ```
 
 ```bash
-docker run -p 5001:5001 kdop/front-app:0.0.1
+cd front-app
+docker build -t kdop/front-app:0.0.2 .
+
+docker push kdop/front-app:0.0.2
+```
+
+```bash
+docker run -p 5000:5000 kdop/front-app:0.0.3
 ```
 
 ## Testing
