@@ -23,6 +23,14 @@ docker push kdop/front-app:0.0.2
 docker run -p 5000:5000 kdop/front-app:0.0.3
 ```
 
+### Helm
+
+```bash
+helm template --namespace adsantos --create-namespace front-app ./front-app
+
+helm install --namespace adsantos --create-namespace front-app ./front-app
+```
+
 ## Testing
 
 <http://127.0.0.1:5001/health>

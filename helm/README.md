@@ -11,7 +11,7 @@ helm create front-app
 Teste
 
 ```bash
-helm install --namespace adsantos --create-namespace front-app ./front-app --dry-run --debug
+helm template --namespace adsantos front-app ./front-app --dry-run --debug
 ```
 
 Pra valer
