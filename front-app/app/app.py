@@ -1,3 +1,4 @@
+import os
 from flask import render_template, request, send_file, abort, url_for
 from flask import Flask
 from flask_bootstrap import Bootstrap
@@ -15,7 +16,7 @@ def index():
 @app.route('/cert')
 def cert():
     try:
-        url = "http://cert-app:5000/"
+        url = os.environ.get('URL_CERT')
         r=requests.get(url)
         if r.status_code == requests.codes.ok:
             return render_template('cert.html', title='Certificado')
@@ -38,7 +39,7 @@ def end():
 
         filename = Path(f'/tmp/inovacao/front-app/{yourname}-cert.pdf')        
 
-        url = f"http://cert-app:5000/get-cert?p={yourname}"
+        url = f"{os.environ.get('URL_CERT')}get-cert?p={yourname}"
         response=requests.get(url)
         filename.write_bytes(response.content)
 
@@ -55,7 +56,7 @@ def cadastro():
             'email' : request.form.get("email")
         }
 
-        url = f"http://back-app:5000/insert"
+        url = f"{os.environ.get('URL_BACK')}insert"
         response=requests.post(url, data = obj)
         alunos=json.loads(response.text)['aluno']
 
@@ -71,7 +72,7 @@ def about():
 @app.route("/health")
 def health():
     try:
-        url = "http://back-app:5000/health"
+        url = f"{os.environ.get('URL_BACK')}health"
         response=requests.get(url)
         return "Front-app Ok!"
     except FileNotFoundError:
