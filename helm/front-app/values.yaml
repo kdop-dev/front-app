@@ -51,7 +51,7 @@ ingress:
       - /adsantos/front-app(/|$)(.*)
     - host: kdop-learn.krthomolog.com.br
       paths:
-      - /adsantos/front-app(/|$)(.*)      
+      - /adsantos/front-app(/|$)(.*)
   tls: []
   # - hosts:
   #   - "*.krthomolog.com.br"
