@@ -69,18 +69,18 @@ def cadastro():
 def about():
     return render_template('about.html', title='About')
 
-@app.route('/backhealth')
-def backhealth():
-    url = f"{os.environ.get('URL_BACK')}health"
-    response=requests.get(url)
-    return render_template(response.content)
+# @app.route('/backhealth')
+# def backhealth():
+#     url = f"{os.environ.get('URL_BACK')}health"
+#     response=requests.get(url)
+#     return render_template(response.content)
 
 @app.route("/health")
 def health():
     try:
         url = f"{os.environ.get('URL_BACK')}health"
         response=requests.get(url)
-        return f"Front-app {os.environ.get('ambiente')} Ok!"
+        return f"Front-app in ns {os.environ.get('ambiente')}: Ok!"
     except FileNotFoundError:
         abort(404)
 
