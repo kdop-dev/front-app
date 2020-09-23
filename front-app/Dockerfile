@@ -12,5 +12,6 @@ COPY ./requirements.txt /app
 RUN mkdir -p /tmp/inovacao/front-app
 RUN pip install -r /app/requirements.txt
 RUN apk del .build-dependencies && rm -rf /var/cache/apk/*
+RUN apk add curl
 EXPOSE 5000
 CMD ["uwsgi", "--ini", "/app/wsgi.ini"]
