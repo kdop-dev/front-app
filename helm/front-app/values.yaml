@@ -9,7 +9,7 @@ image:
   pullPolicy: Always
   #pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.0.4"
+  tag: "0.0.5"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -48,10 +48,10 @@ ingress:
   hosts:
     - host: learn.kdop.net
       paths:
-      - /adsantos/front-app(/|$)(.*)
+      - /<seu namespace>/front-app(/|$)(.*)
     - host: kdop-learn.krthomolog.com.br
       paths:
-      - /adsantos/front-app(/|$)(.*)
+      - /<seu namespace>/front-app(/|$)(.*)
   tls: []
   # - hosts:
   #   - "*.krthomolog.com.br"
@@ -73,6 +73,11 @@ environments:
         configMapKeyRef:
           name: front-app
           key: URL_CERT
+    - name: ambiente
+      valueFrom:
+        configMapKeyRef:
+          name: front-app
+          key: <seu namespace>
 
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
