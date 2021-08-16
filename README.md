@@ -14,9 +14,9 @@ flask run --port 5000
 
 ```bash
 cd front-app
-docker build -t kdop/front-app:0.0.2 .
+docker build -t kdop/front-app:0.0.3 .
 
-docker push kdop/front-app:0.0.2
+docker push kdop/front-app:0.0.3
 ```
 
 ```bash
