@@ -30,14 +30,14 @@ def cert():
 @app.route('/get', methods=["POST"])
 def get():
     yourname=request.form.get("yourname")
-    return send_file(f'/tmp/inovacao/front-app/{yourname}-cert.pdf', as_attachment=True)
+    return send_file(f'{yourname}-cert.pdf', as_attachment=True)
 
 @app.route('/end', methods=["POST"])
 def end():
     try:
         yourname=request.form.get("yourname")
 
-        filename = Path(f'/tmp/inovacao/front-app/{yourname}-cert.pdf')        
+        filename = Path(f'{yourname}-cert.pdf')        
 
         url = f"{os.environ.get('URL_CERT')}get-cert?p={yourname}"
         response=requests.get(url)
