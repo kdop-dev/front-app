@@ -1,5 +1,30 @@
 # front-app
 
+## run
+
+```bash
+cd front-app/app
+
+flask run
+```
+
+## Build image
+
+```bash
+cd kdop/front-app
+docker build -t kdop/front-app:0.0.6 .
+
+docker push kdop/front-app:0.0.6
+```
+
+```bash
+docker run -p 5000:5000 kdop/front-app:0.0.6
+```
+
+## Testing
+
+<http://127.0.0.1:5000/index>
+
 ## Criar helm
 
 ```bash
