@@ -14,13 +14,13 @@ flask run --port 5000
 
 ```bash
 cd front-app
-docker build -t kdop/front-app:0.0.3 .
+docker build -t kdop/front-app:0.0.7 .
 
-docker push kdop/front-app:0.0.3
+docker push kdop/front-app:0.0.7
 ```
 
 ```bash
-docker run -p 5000:5000 kdop/front-app:0.0.3
+docker run -p 5000:5000 kdop/front-app:0.0.7
 ```
 
 ### Helm
